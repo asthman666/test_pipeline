@@ -3,6 +3,7 @@ steps:
     plugins:
       - ecr#v2.7.0:
           login: true
+          account_ids: "public.ecr.aws"
       - docker-compose#v4.7.0:
           push:
             - app:public.ecr.aws/k6a7e3i6/test-pipeline:latest
