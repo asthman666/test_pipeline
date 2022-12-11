@@ -9,10 +9,10 @@ namespace EnglishSentence.Controllers
         private static readonly string[] EnglishSentences = new[]
         {
             "Work for something because it is good, not just because it stands a chance to succeed.",
-            "The only limit to the height of your achievements is the reach of your dreams and your willingness to work hard for them.",
-            "A leader has the vision and conviction that a dream can be achieved. He inspires the power and energy to get it done.",
-            "It is our attitude at the beginning of a difficult task which, more than anything else, will affect its successful outcome.",
-            "Optimists always picture themselves accomplishing their goals.",
+            //"The only limit to the height of your achievements is the reach of your dreams and your willingness to work hard for them.",
+            //"A leader has the vision and conviction that a dream can be achieved. He inspires the power and energy to get it done.",
+            //"It is our attitude at the beginning of a difficult task which, more than anything else, will affect its successful outcome.",
+            //"Optimists always picture themselves accomplishing their goals.",
         };
 
         private readonly ILogger<EnglishSentenceController> _logger;
