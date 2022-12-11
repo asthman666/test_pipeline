@@ -4,6 +4,8 @@ steps:
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
+  - wait
+
   - label: ":docker: Push"
     plugins:
       - ecr#v2.7.0:
@@ -14,6 +16,8 @@ steps:
             - app:public.ecr.aws/k6a7e3i6/test-pipeline:${BUILDKITE_BUILD_NUMBER}
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+
+  - wait
 
   - label: ":codedeploy: Deploy"
     command: "deployment/script/deploy.sh"
