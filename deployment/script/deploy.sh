@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -exo pipefail
 
 echo "Deploy begin"
