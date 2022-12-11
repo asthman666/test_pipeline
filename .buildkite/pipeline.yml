@@ -1,6 +1,6 @@
 steps:
   - label: ":testobject: Test"
-    command: "script/test.sh"
+    command: "deployment/script/test.sh"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
@@ -16,6 +16,6 @@ steps:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
   - label: ":codedeploy: Deploy"
-    command: "script/deploy.sh"
+    command: "deployment/script/deploy.sh"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
