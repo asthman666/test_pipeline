@@ -8,7 +8,7 @@ steps:
             - ".:/app"
           mount-checkout: false
           workdir: "/app/EnglishSentence.Test"
-          command: ["dotnet", "test"]
+          command: ["ls", "-lrt"]
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
