@@ -1,10 +1,10 @@
 steps:
   - label: ":testobject: Test"
+    command: "dotnet test"
     plugins:
       - docker#v5.3.0:
           image: "mcr.microsoft.com/dotnet/sdk:6.0"
           always-pull: true
-          command: ["dotnet", "test"]
           volumes:
             - ".:/app"
           workdir: "/app/EnglishSentence.Test"
@@ -12,6 +12,8 @@ steps:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
   - wait
+
+  - block: ":rocket: Push!"
 
   - label: ":docker: Push"
     plugins:
