@@ -7,7 +7,7 @@ steps:
           volumes:
             - ".:/app"
           mount-checkout: false
-          workdir: "/app/EnglishSentence.Test"
+          workdir: "/app"
           command: ["ls", "-lrt"]
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
