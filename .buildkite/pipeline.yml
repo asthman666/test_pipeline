@@ -4,8 +4,6 @@ steps:
       - docker#v3.14.0:
           image: "mcr.microsoft.com/dotnet/sdk:6.0"
           always-pull: true
-          volumes:
-            - ".:/app"
           workdir: "/app/EnglishSentence.Test"
           command: ["dotnet", "test"]
     agents:
