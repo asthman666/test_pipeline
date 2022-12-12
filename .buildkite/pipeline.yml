@@ -1,6 +1,6 @@
 steps:
   - label: ":testobject: Test"
-=  - plugins:
+    plugins:
       - docker#v5.3.0:
           image: "mcr.microsoft.com/dotnet/sdk:6.0"
           always-pull: true
