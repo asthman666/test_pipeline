@@ -2,13 +2,9 @@ steps:
   - label: ":testobject: Test"
     command: "dotnet test"
     plugins:
-      - docker#v3.14.0:
-          image: "mcr.microsoft.com/dotnet/sdk:6.0"
-          always-pull: true
-          volumes:
-            - ".:/app"
-          mount-checkout: false
-          workdir: "/app/EnglishSentence.Test"
+      - docker-compose#v4.7.0:
+          run: app-test
+          workdir: "/src/EnglishSentence.Test"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 

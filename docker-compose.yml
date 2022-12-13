@@ -5,3 +5,7 @@ services:
         context: .
         dockerfile: ./EnglishSentence/Dockerfile
         
+  app-test:
+    build: 
+        context: .
+        dockerfile: ./EnglishSentence.Test/Dockerfile        
