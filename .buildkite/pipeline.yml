@@ -4,7 +4,7 @@ steps:
     plugins:
       - docker-compose#v4.7.0:
           run: app-test
-          workdir: "/src/EnglishSentence.Test"
+          workdir: "/src/test/EnglishSentence.Test"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
 
