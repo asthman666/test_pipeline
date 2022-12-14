@@ -10,6 +10,17 @@ steps:
 
   - wait
 
+  - label: ":testobject: CoreUnitTest"
+    command: "dotnet test"
+    plugins:
+      - docker-compose#v4.7.0:
+          run: app-test
+          workdir: "/src/test/EnglishSentenceCore.UnitTest"
+    agents:
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"  
+
+  - wait
+  
   - block: ":rocket: Push!"
 
   - label: ":docker: Push"
