@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+
+COPY app/*/*.csproj ./
+RUN for file in $(ls *.csproj); do mkdir -p app/${file%.*}/ && mv $file app/${file%.*}/ && dotnet restore app/${file%.*}/$file; done
+
+COPY test/*/*.csproj ./
+RUN for file in $(ls *.csproj); do mkdir -p test/${file%.*}/ && mv $file test/${file%.*}/ && dotnet restore test/${file%.*}/$file; done
+
+COPY . .

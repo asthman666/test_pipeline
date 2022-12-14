@@ -3,9 +3,9 @@ services:
   app:
     build: 
         context: .
-        dockerfile: ./EnglishSentence/Dockerfile
+        dockerfile: ./Dockerfile-app
         
   app-test:
     build: 
         context: .
-        dockerfile: ./EnglishSentence.Test/Dockerfile        
+        dockerfile: ./Dockerfile-test      
