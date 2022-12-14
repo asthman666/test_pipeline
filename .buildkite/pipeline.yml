@@ -1,31 +1,12 @@
 steps:
-  - label: ":testobject: BuildTestImage"
-    command: "dotnet test"
-    plugins:
-      - docker-compose#v4.7.0:
-          build: app-test
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"  
-      
-  - wait
-
   - label: ":testobject: Test"
-    command: "dotnet test"
+    command: "find . -name '*.csproj' | xargs -n 1 dotnet test"
     plugins:
       - docker-compose#v4.7.0:
           run: app-test
-          workdir: "/src/test/EnglishSentence.Test"
+          workdir: "/src/test"
     agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
-
-  - label: ":testobject: CoreUnitTest"
-    command: "dotnet test"
-    plugins:
-      - docker-compose#v4.7.0:
-          run: app-test
-          workdir: "/src/test/EnglishSentenceCore.UnitTest"
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"  
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}" 
 
   - wait
 
