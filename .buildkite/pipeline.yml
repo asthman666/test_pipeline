@@ -1,4 +1,14 @@
 steps:
+  - label: ":testobject: BuildTestImage"
+    command: "dotnet test"
+    plugins:
+      - docker-compose#v4.7.0:
+          build: app-test
+    agents:
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"  
+      
+  - wait
+
   - label: ":testobject: Test"
     command: "dotnet test"
     plugins:
@@ -7,8 +17,6 @@ steps:
           workdir: "/src/test/EnglishSentence.Test"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
-
-  - wait
 
   - label: ":testobject: CoreUnitTest"
     command: "dotnet test"
@@ -20,7 +28,7 @@ steps:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"  
 
   - wait
-  
+
   - block: ":rocket: Push!"
 
   - label: ":docker: Push"
