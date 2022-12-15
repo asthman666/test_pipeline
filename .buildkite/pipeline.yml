@@ -27,7 +27,10 @@ steps:
 
   - block: ":rocket: Release!"
 
-  - label: ":codedeploy: Deploy"
-    command: BUILDKITE_BUILD_NUMBER=$BUILDKITE_BUILD_NUMBER ./deployment/script/deploy.sh
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+  - label: "🚀"
+      trigger: "test-pipeline-deploy"
+      if: build.branch == 'main'
+      build:
+        commit: "$BUILDKITE_COMMIT"
+
+
