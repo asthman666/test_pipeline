@@ -25,7 +25,7 @@ steps:
 
   - wait
 
-  - block: ":rocket: Release!"
+  - block: ":rocket: Release!!"
 
   - trigger: "test-pipeline-deploy"
 
