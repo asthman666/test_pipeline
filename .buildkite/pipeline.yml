@@ -27,10 +27,6 @@ steps:
 
   - block: ":rocket: Release!"
 
-  - label: ":rocket: Deploy"
-      trigger: "test-pipeline-deploy"
-      if: build.branch == 'main'
-      build:
-        commit: "$BUILDKITE_COMMIT"
+  - trigger: "test-pipeline-deploy"
 
 
