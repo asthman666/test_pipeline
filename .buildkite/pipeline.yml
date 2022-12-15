@@ -27,7 +27,7 @@ steps:
 
   - block: ":rocket: Release!"
 
-  - label: "🚀"
+  - label: ":rocket:"
       trigger: "test-pipeline-deploy"
       if: build.branch == 'main'
       build:
