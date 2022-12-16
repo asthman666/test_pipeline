@@ -28,5 +28,11 @@ steps:
   - block: ":rocket: Release!!"
 
   - trigger: "test-pipeline-deploy"
+    build:
+      message: "${BUILDKITE_MESSAGE}"
+      commit: "${BUILDKITE_COMMIT}"
+      branch: "${BUILDKITE_BRANCH}"  
+        
+
 
 
